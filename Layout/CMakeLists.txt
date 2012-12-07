@@ -1,0 +1,37 @@
+
+#添加Qt类头文件在此命令中
+
+SET(QHeader 
+vLayout.h
+)
+
+
+
+AUX_SOURCE_DIRECTORY(. VIEWER_SOURCE_FILE)
+
+#生成Qt的moc文件
+
+QT4_WRAP_CPP(MOCSrcs ${QHeader})
+
+
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin/tool)
+
+add_definitions(-DV_LAYOUT_EXPORTS)
+
+ADD_LIBRARY(Layout SHARED ${VIEWER_SOURCE_FILE} 
+  ${MOCSrcs})
+
+
+#添加对应的lib在这里
+TARGET_LINK_LIBRARIES(Layout
+  DataStorage  
+  FrameWork
+  QVTK
+  vtkRendering
+  ${QT_LIBRARIES})
+
+IF(WIN32)
+INSTALL(TARGETS Layout RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/tool)
+ELSE(WIN32)
+INSTALL(TARGETS Layout LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/tool)
+ENDIF(WIN32)

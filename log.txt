@@ -1,0 +1,17 @@
+2012年6月14日
+
+文件夹目录介绍：
+
+icon：放置所有图标及图片的目录
+default：放置默认选项的xml文件的目录，亦可以放置其他基础文档
+
+DataIO：扩展工具栏DataReader
+DataStorage：数据存储器内部类
+FrameWork：UI相关的基础类，包括主窗口，视图，树管理及其内部的控件
+Interaction2D：扩展工具栏Interaction2D
+Interaction3D：扩展工具栏Interaction3D
+Layout：扩展工具栏Layout
+viewer：主程序入口，在这里实例化
+
+文件介绍：
+CmakeLists.txt:Cmake的主文档
